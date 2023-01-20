@@ -1,6 +1,6 @@
 <script lang="ts">
   import { useNuiEvent } from "@hooks/useNuiEvent";
-  import { fetchNui } from "@utils/fetchNui";
+  import { useFetchNui } from "@hooks/useFetchNui";
   import { onMount } from "svelte";
   import { visibility } from "@store/visibility";
 
@@ -14,7 +14,7 @@
   onMount(() => {
     const keyHandler = (e: KeyboardEvent) => {
       if (isVisible && ["Escape"].includes(e.code)) {
-        fetchNui("hideUI");
+        useFetchNui("hideUI");
         visibility.set(false);
       }
     };
