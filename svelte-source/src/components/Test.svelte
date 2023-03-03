@@ -5,11 +5,28 @@
   import { Router, Link, Route } from "svelte-routing";
   import Home from "../layouts/home/Home.svelte";
   import About from "../layouts/about/About.svelte";
+  import { onMount } from "svelte";
+  import { useFetchNui } from "@hooks/useFetchNui";
 
   let show = false;
 
   useNuiEvent("openUI", () => {
     show = true;
+  });
+
+  const handleClose = () => {
+    show = false;
+    useFetchNui("boilerplate:closeUI");
+  };
+
+  onMount(() => {
+    const keyHandler = (e: KeyboardEvent) => {
+      if (["Escape"].includes(e.code)) handleClose();
+    };
+
+    window.addEventListener("keydown", keyHandler);
+
+    return () => window.removeEventListener("keydown", keyHandler);
   });
 </script>
 
