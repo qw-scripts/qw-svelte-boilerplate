@@ -5,6 +5,7 @@
   import { onMount } from "svelte";
   import { useFetchNui } from "@hooks/useFetchNui";
   import { isEnvBrowser } from "@utils/misc";
+  import MyComponent from "@components/MyComponent.svelte";
 
   let show = false;
 
@@ -37,7 +38,7 @@
       in:fade={{ duration: 400, easing: cubicOut }}
       out:fade={{ duration: 400, easing: cubicIn }}
     >
-      hello world
+      <MyComponent />
     </div>
   {/if}
 </main>
