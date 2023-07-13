@@ -8,10 +8,11 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@store/*": ["src/store/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@interfaces/*": ["src/interfaces/*"],
+      "@interfaces/*": ["src/interfaces/*"]
     },
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.

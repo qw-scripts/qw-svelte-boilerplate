@@ -23,7 +23,6 @@
     "vite": "^4.0.0"
   },
   "dependencies": {
-    "html-minifier": "^4.0.0",
-    "svelte-routing": "^1.6.0"
+    "html-minifier": "^4.0.0"
   }
 }

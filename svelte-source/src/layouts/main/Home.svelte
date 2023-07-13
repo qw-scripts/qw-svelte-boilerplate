@@ -2,11 +2,9 @@
   import { useNuiEvent } from "@hooks/useNuiEvent";
   import { cubicOut, cubicIn } from "svelte/easing";
   import { fade } from "svelte/transition";
-  import { Router, Link, Route } from "svelte-routing";
-  import Home from "../layouts/home/Home.svelte";
-  import About from "../layouts/about/About.svelte";
   import { onMount } from "svelte";
   import { useFetchNui } from "@hooks/useFetchNui";
+  import { isEnvBrowser } from "@utils/misc";
 
   let show = false;
 
@@ -16,10 +14,12 @@
 
   const handleClose = () => {
     show = false;
+    if (isEnvBrowser()) return;
     useFetchNui("boilerplate:closeUI");
   };
 
   onMount(() => {
+    // Handles the escape key press to close the UI
     const keyHandler = (e: KeyboardEvent) => {
       if (["Escape"].includes(e.code)) handleClose();
     };
@@ -37,16 +37,7 @@
       in:fade={{ duration: 400, easing: cubicOut }}
       out:fade={{ duration: 400, easing: cubicIn }}
     >
-      <Router>
-        <nav class="p-2">
-          <Link to="/">Home</Link>
-          <Link to="about">About</Link>
-        </nav>
-        <div class="p-2">
-          <Route path="/" component={Home} />
-          <Route path="/about" component={About} />
-        </div>
-      </Router>
+      hello world
     </div>
   {/if}
 </main>

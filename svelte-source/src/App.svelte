@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Test from "@components/Test.svelte";
   import { debugData } from "@utils/debugData";
+  import Home from "@layouts/main/Home.svelte";
 
   debugData([
     {
@@ -11,5 +11,5 @@
 </script>
 
 <main>
-  <Test />
+  <Home />
 </main>
